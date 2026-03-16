@@ -1,58 +1,101 @@
+# Copyright (C) Deepali Srivastava - All Rights Reserved
+# This code is part of DSA course available on CourseGalaxy.com  
+
 class Node:
 
     def __init__(self,value):
-        self.value = value
+        self.info = value 
         self.link = None 
+        
 class SingleLinkedList:
 
     def __init__(self):
         self.start = None
-        
+     
     def display_list(self):
-        pass
+        if self.start is None:
+            print("List is empty")
+            return
+        else:
+            print("List is :   ")
+            p = self.start 
+            while p is not None:
+                print(p.info , " ", end='')
+                p = p.link 
+            print()
 
     def count_nodes(self):
-        pass
-
+        p = self.start 
+        n = 0        
+        while p is not None:
+            n+=1
+            p = p.link
+        print("Number of nodes in the list = " ,n)
+    
     def search(self,x):
-        pass
+        position = 1
+        p = self.start
+        while p is not None:
+            if p.info == x:
+                print(x , " is at position ", position)
+                return True
+            position+=1
+            p = p.link
+        else:
+            print(x," not found in list")
+            return False
 
-    def insert_begining(self,data):
-        pass
-
-    def insert_end(self,data):
-        pass 
+    def insert_in_beginning(self, data):
+        temp = Node(data)
+        temp.link = self.start
+        self.start = temp
+   
+    def insert_at_end(self, data):
+        temp = Node(data)
+        if self.start is None:
+            self.start = temp
+            return
+        
+        p = self.start
+        while p.link is not None:
+            p = p.link
+        p.link = temp
 
     def create_list(self):
-        pass 
-
+        n = int(input("Enter the number of nodes : "))
+        if n == 0:
+            return
+        for i in range(n):
+            data = int(input("Enter the element to be inserted : "))
+            self.insert_at_end(data)
+           
     def insert_after(self,data,x):
-        pass 
-
-    def insert_before(self,data,x):
+        pass    
+           
+    def insert_before(self, data, x):
         pass
-
-    def insert_at_position(self,data,x):
-        pass 
-
+     
+    def insert_at_position(self, data, k):
+        pass
+    
     def delete_node(self,x):
-        pass 
-
+        pass   
+                 
     def delete_first_node(self):
         pass
 
     def delete_last_node(self):
         pass
-
+    
     def reverse_list(self):
-        pass
+        pass   
 
     def bubble_sort_exdata(self):
         pass
-
-    def bubble_sort_exlist(self):
+    
+    def bubble_sort_exlinks(self):
         pass
-
+           
     def has_cycle(self):
         pass
 
@@ -60,26 +103,29 @@ class SingleLinkedList:
         pass
 
     def remove_cycle(self):
-        pass
+        pass   
 
     def insert_cycle(self,x):
         pass
-
+    
     def merge2(self,list2):
         pass
-
-    def _merge2(self,p1,p2):
+    
+    def _merge2(self, p1, p2):
         pass
 
-    def merge_sort(self,p1,p2):
-        pass
+    def merge_sort(self):
+        pass    
 
     def _merge_sort_rec(self,listStart):
         pass
 
-    def _divide_list(self,p):
+    def _divide_list(self, p):
         pass
+        
 
+#######################################################################################
+            
 list = SingleLinkedList() 
 
 list.create_list() 
@@ -162,3 +208,5 @@ while True:
     else:
         print("Wrong option") 
     print() 
+
+   
